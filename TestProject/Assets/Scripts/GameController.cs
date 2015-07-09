@@ -4,6 +4,7 @@ using System.Collections;
 public class GameController : MonoBehaviour {
 
 	public GameObject hazard;
+	public GameObject enemy;
 	public Vector3 spawnValues;
 	public int hazardCount;
 	public float spawnWait;
@@ -77,6 +78,7 @@ public class GameController : MonoBehaviour {
 				Instantiate (hazard, spawnPosition, spawnRotation);
 				yield return new WaitForSeconds (spawnWait);
 			}
+			Instantiate(enemy);
 			yield return new WaitForSeconds (waveWait);
 
 			if (gameOver)
