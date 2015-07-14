@@ -25,8 +25,8 @@ public class GameController : MonoBehaviour {
 	void Start()
 	{
 		startUp = true;
-		startUpText.text = "Hit the W key to play with the keyboard or " +
-			"\n click the mouse to play with the mouse.";
+		//startUpText.text = "Hit the W key to play with the keyboard or " +
+		//	"\n click the mouse to play with the mouse.";
 		gameOver = false;
 		restart = false;
 		restartText.text = "";
@@ -44,8 +44,10 @@ public class GameController : MonoBehaviour {
 
 	void Update()
 	{
+
 		if (startUp) {
-			if (Input.GetKeyDown (KeyCode.W))
+
+			/*if (Input.GetKeyDown (KeyCode.W))
 			{
 				gameState = "Keys";
 				startUp = false;
@@ -58,7 +60,12 @@ public class GameController : MonoBehaviour {
 				startUp = false;
 				GameStart ();
 			}
+			*/
+			gameState = "Keys";
+			startUp = false;
+			GameStart ();
 		}
+
 		if (restart) {
 			if(Input.GetKeyDown (KeyCode.R))
 			   {

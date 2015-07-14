@@ -19,6 +19,12 @@ public class PlayerController : MonoBehaviour {
 	public float fireRate;
 	private float nextFire;
 
+	private Camera cam;
+	private Vector3 worldPos;
+
+	private float startTime;
+	public float journeyTime = 1.0f;
+
 	private GameController gameController;
 	void Start ()
 	{
@@ -30,6 +36,9 @@ public class PlayerController : MonoBehaviour {
 		if (gameController == null) {
 			Debug.Log ("Cannot find 'GameController' script");
 		}
+
+		startTime = Time.time;
+		cam = Camera.main;
 	}
 
 
@@ -45,8 +54,10 @@ public class PlayerController : MonoBehaviour {
 		}
 	}
 
-	void UpdateMouse()
+
+	/*void UpdateMouse()
 	{
+
 		float moveHorizontal = 2.0f * Input.GetAxis ("Mouse X");
 		float moveVertical = 2.0f * Input.GetAxis ("Mouse Y");
 		
@@ -62,7 +73,18 @@ public class PlayerController : MonoBehaviour {
 		
 		GetComponent<Rigidbody> ().rotation = Quaternion.Euler (0.0f, 0.0f, GetComponent<Rigidbody> ().velocity.x * -tilt);
 
-	}
+
+		worldPos = cam.ScreenToWorldPoint (new Vector3(Input.mousePosition.x,Input.mousePosition.y,cam.nearClipPlane));
+		var fracComplete = (Time.time - startTime) / journeyTime;
+		transform.position = Vector3.Slerp(this.transform.position, worldPos, 5f);
+
+		
+		worldPos = cam.ScreenToWorldPoint (new Vector3(Input.mousePosition.x,Input.mousePosition.y,cam.nearClipPlane));
+		Vector3 currentPos = Vector3.Slerp (this.transform.position, worldPos, Time.deltaTime);
+		this.transform.position = new Vector3 (currentPos.x, 0, currentPos.z);
+
+}
+*/
 
 
 	void UpdateKeys()
@@ -91,7 +113,7 @@ public class PlayerController : MonoBehaviour {
 				UpdateKeys();
 			} else if (gameController.getGameState() == "Mouse")
 			{
-				UpdateMouse();
+//				UpdateMouse();
 			}
 		}
 	}
