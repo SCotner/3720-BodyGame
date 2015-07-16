@@ -12,15 +12,17 @@ public class GameController : MonoBehaviour {
 	public float waveWait;
 	private string gameState;
 
-	public GUIText scoreText;
+	public GUIText healthText;
 	public GUIText restartText;
 	public GUIText gameOverText;
 	public GUIText startUpText;
+	public GUIText countdownText;
 
 	private bool gameOver;
 	private bool restart;
 	private bool startUp;
-	public int score;
+	public int health;
+	public int countDown;
 
 	void Start()
 	{
@@ -36,7 +38,7 @@ public class GameController : MonoBehaviour {
 	void GameStart()
 	{
 		startUpText.text = "";
-		score = 0;
+		health = 100;
 		UpdateScore();
 		StartCoroutine (SpawnWaves ());
 
@@ -97,15 +99,30 @@ public class GameController : MonoBehaviour {
 		}
 	}
 
-	public void AddScore (int newScoreValue)
+	public void subHealth (int newScoreValue)
 	{
-		score += newScoreValue;
+		health -= newScoreValue;
+		if (health <= 0) {
+			GameOver ();
+		}
 		UpdateScore ();
+	}
+
+	public void AddCountdown (int newCountdownValue)
+	{
+		countDown += newCountdownValue;
+		UpdateCountdown ();
 	}
 
 	void UpdateScore()
 	{
-		scoreText.text = "Score: " + score;
+		healthText.text = "Health: " + health;
+
+	}
+
+	void UpdateCountdown()
+	{
+		countdownText.text = "Infection Cleared: " + countDown + "%";
 	}
 
 	public void GameOver()

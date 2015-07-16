@@ -7,8 +7,8 @@ public class EnemyAITest : MonoBehaviour {
 	public Transform target; //the enemy's target
 	public float moveSpeed =3f; //move speed
 	public float rotationSpeed = 3f; //speed of turning
-	private float range =10f;
-	private float range2 =10f;
+	private float range =100f;
+	private float range2 =100f;
 	private float stop = 0f;
 	private Transform myTransform; //current transform data of this enemy
 
