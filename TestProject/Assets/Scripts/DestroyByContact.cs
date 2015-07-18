@@ -29,10 +29,23 @@ public class DestroyByContact : MonoBehaviour {
 		Instantiate (explosion, transform.position, transform.rotation);
 		if (other.tag == "Player") {
 			Instantiate (playerExplosion, other.transform.position, other.transform.rotation);
+			Destroy (other.gameObject);
+			Destroy (gameObject);
 			gameController.GameOver ();
 		}
-		gameController.AddCountdown (scoreValue);
-		Destroy (other.gameObject);
-		Destroy (gameObject);
+
+		else if (tag.Contains("Virus") && other.tag == "Anti-Virus")
+		{
+			gameController.AddCountdown (scoreValue);
+			Destroy (other.gameObject);
+			Destroy (gameObject);
+		}
+		else if (tag.Contains ("Infection") && other.tag == "Antibiotic") {
+			gameController.AddCountdown (scoreValue);
+			Destroy (other.gameObject);
+			Destroy (gameObject);
+		} else {
+			Destroy (other.gameObject);
+		}
 	}
 }

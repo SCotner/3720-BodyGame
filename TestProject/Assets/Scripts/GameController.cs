@@ -24,6 +24,8 @@ public class GameController : MonoBehaviour {
 	public int health;
 	public int countDown;
 
+	public string Stage;
+
 	void Start()
 	{
 		startUp = true;
@@ -123,6 +125,9 @@ public class GameController : MonoBehaviour {
 	void UpdateCountdown()
 	{
 		countdownText.text = "Infection Cleared: " + countDown + "%";
+		if (countDown > 100) {
+			Application.LoadLevel (Stage);
+		}
 	}
 
 	public void GameOver()

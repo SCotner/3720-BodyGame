@@ -1,11 +1,13 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/GameController.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\DestroyByContact.cs">
     <Files>
-      <File FileName="Assets/Scripts/EnemyAITest.cs" Line="10" Column="25" />
-      <File FileName="Assets/Scripts/GameController.cs" Line="106" Column="16" />
-      <File FileName="Assets/Scripts/DestroyByContact.cs" Line="33" Column="4" />
-      <File FileName="Assets/Scripts/DestroyByBoundary.cs" Line="24" Column="26" />
+      <File FileName="Assets\Scripts\DestroyByContact.cs" Line="44" Column="45" />
+      <File FileName="Assets\Scripts\PlayerController.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\GameController.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\OffsetScroller.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\IntermissionController.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\EnemyAITest.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
